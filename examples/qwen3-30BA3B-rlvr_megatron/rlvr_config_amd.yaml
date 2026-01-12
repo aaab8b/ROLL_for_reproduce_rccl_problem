@@ -135,7 +135,7 @@ actor_train:
       moe_token_dispatcher_type: "alltoall"
       moe_grouped_gemm: true
       moe_layer_recompute: true
-  device_mapping: list(range(0,32))
+  device_mapping: list(range(0,8))
   infer_batch_size: 2
 
 actor_infer:
@@ -159,7 +159,7 @@ actor_infer:
       tensor_parallel_size: 2
       sleep_level: 2  # 2 will destroy model parameter and kv_cache after generate to save cpu memory, 1 will destroy kv_cache only.
   num_gpus_per_worker: 2
-  device_mapping: list(range(0,24)) # device share with llm reward
+  device_mapping: list(range(0,6)) # device share with llm reward
   infer_batch_size: 1
 
 reference:
@@ -177,7 +177,7 @@ reference:
       expert_model_parallel_size: 4
       moe_token_dispatcher_type: "alltoall"
       moe_grouped_gemm: true
-  device_mapping: list(range(0,32))
+  device_mapping: list(range(0,8))
   infer_batch_size: 2
 
 rewards:
@@ -257,9 +257,9 @@ rewards:
       # strategy_config: null
       strategy_name: vllm
       strategy_config:
-        gpu_memory_utilization: 0.8
+        gpu_memory_utilization: 0.5
         block_size: 16
         max_model_len: 8000
         load_format: auto
-    device_mapping: list(range(24,32))
+    device_mapping: list(range(6,8))
     infer_batch_size: 4

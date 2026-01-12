@@ -139,11 +139,11 @@ train_env_manager:
   num_groups_partition: [128] # If not set, all env names divide nums equally. Under the same group, the env config and env seed (prompt) are equal in each generation
 
 val_env_manager:
-  max_env_num_per_worker: 32
-  num_env_groups: 1024
+  max_env_num_per_worker: 16
+  num_env_groups: 128
   group_size: 1 # should be set to 1 because val temperature is set to 0 and same prompt leads to same output
-  tags: [SimpleSokoban, LargerSokoban, SokobanDifferentGridVocab, FrozenLake]
-  num_groups_partition: [256, 256, 256, 256] # TODO: If not set, all env names divide nums equally. Under the same group, the env config and env seed (prompt) are equal in each generation
+  tags: [FrozenLake]
+  num_groups_partition: [128] # TODO: If not set, all env names divide nums equally. Under the same group, the env config and env seed (prompt) are equal in each generation
 
 
 # Here, you can override variables defined in the imported envs. max_tokens_per_step: 128 in custom_env.SimpleSokoban, here replaced by 64

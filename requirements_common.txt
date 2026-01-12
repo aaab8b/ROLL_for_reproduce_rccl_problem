@@ -1,5 +1,5 @@
-ray[default,cgraph] # vllm required ray[default,cgraph]>=2.48.0
-numpy<2.0a0,>=1.25
+#ray[default,cgraph] # vllm required ray[default,cgraph]>=2.48.0
+#numpy<2.0a0,>=1.25
 tensordict
 sympy
 modelscope
@@ -7,7 +7,7 @@ datasets==3.1.0
 tqdm
 peft==0.12.0
 tyro>=0.5.7
-accelerate==0.34.2
+#accelerate==0.34.2
 pydantic
 pytest
 loralib
@@ -15,7 +15,7 @@ einops
 isort
 jsonlines
 deprecated
-trl==0.9.6
+#trl==0.9.6
 # pyext
 dacite
 codetiming
